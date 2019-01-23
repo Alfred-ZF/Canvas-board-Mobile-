@@ -1,10 +1,15 @@
 var yyy = document.getElementById('xxx');
 var content = yyy.getContext('2d');
+var lineWidth = 5
 
 autoSetCanvasSize(yyy)
 listenToUser(yyy)
 
 var eraserEnabled = false
+
+clear.onclick = function () {
+  content.clearRect(0, 0, yyy.width, yyy.height);
+}
 
 pen.onclick = function () {
   eraserEnabled = false
@@ -17,10 +22,39 @@ eraser.onclick = function () {
   eraser.classList.add('active')
   pen.classList.remove('active')
 }
+``
+save.onclick = function () {
+  var url = yyy.toDataURL('image/png')
+  var a = document.createElement('a')
+  document.body.appendChild(a)
+  a.href = url
+  a.download = '图片'
+  a.target = '_blank'
+  a.click()
+}
+
+thin.onclick = function () {
+  lineWidth = 5
+}
+
+thick.onclick = function () {
+  lineWidth = 10
+}
+
+black.onclick = function () {
+  content.fillStyle = 'black'
+  content.strokeStyle = 'black'
+  black.classList.add('active')
+  red.classList.remove('active')
+  green.classList.remove('active')
+  blue.classList.remove('active')
+}
+
 red.onclick = function () {
   content.fillStyle = 'red'
   content.strokeStyle = 'red'
   red.classList.add('active')
+  black.classList.remove('active')
   green.classList.remove('active')
   blue.classList.remove('active')
 }
@@ -29,6 +63,7 @@ green.onclick = function () {
   content.fillStyle = 'green'
   content.strokeStyle = 'green'
   green.classList.add('active')
+  black.classList.remove('active')
   red.classList.remove('active')
   blue.classList.remove('active')
 }
@@ -37,6 +72,7 @@ blue.onclick = function () {
   content.fillStyle = 'blue'
   content.strokeStyle = 'blue'
   blue.classList.add('active')
+  black.classList.remove('active')
   green.classList.remove('active')
   red.classList.remove('active')
 }
@@ -154,7 +190,7 @@ function listenToUser(canvas) {
 function drawLine(x1, y1, x2, y2) {
   content.beginPath();
   content.moveTo(x1, y1)
-  content.lineWidth = 5
+  content.lineWidth = lineWidth
   content.lineTo(x2, y2)
   content.stroke()
   content.closePath()

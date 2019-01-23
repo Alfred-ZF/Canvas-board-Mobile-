@@ -39,7 +39,7 @@ body{
 
 .colors{
   position: fixed;
-  top: 80px;
+  top: 43%;
   left: 25px;
   
 }
@@ -51,6 +51,11 @@ body{
   margin: 10px 0;
   border-radius: 50%;
   transition: all 0.3s;
+}
+
+
+.colors > li.black{
+  background:black;
 }
 
 .colors > li.red{
@@ -70,3 +75,24 @@ body{
   transform: scale(1.2);
 
 }
+
+.sizes{
+  position: fixed;
+  right:40px;
+  top:50px;
+}
+.sizes li{
+  margin: 20px 0;
+}
+
+.sizes > .thin{
+  height:0;
+  width:20px;
+  border-top: 3px solid black;
+} 
+
+.sizes > .thick{
+  height:0;
+  width:20px;
+  border-top: 6px solid black;
+} 
