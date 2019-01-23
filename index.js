@@ -7,10 +7,6 @@ listenToUser(yyy)
 
 var eraserEnabled = false
 
-clear.onclick = function () {
-  content.clearRect(0, 0, yyy.width, yyy.height);
-}
-
 pen.onclick = function () {
   eraserEnabled = false
   pen.classList.add('active')
@@ -22,7 +18,11 @@ eraser.onclick = function () {
   eraser.classList.add('active')
   pen.classList.remove('active')
 }
-``
+
+clear.onclick = function () {
+  content.clearRect(0, 0, yyy.width, yyy.height);
+}
+
 save.onclick = function () {
   var url = yyy.toDataURL('image/png')
   var a = document.createElement('a')
@@ -110,11 +110,11 @@ function listenToUser(canvas) {
     //触屏设备
 
     canvas.ontouchstart = function (aaa) {
-      
+
       var x = aaa.touches['0'].clientX
       var y = aaa.touches['0'].clientY
 
-      
+
       using = true
       if (eraserEnabled) {
         content.clearRect(x - 3, y - 3, 15, 15)
@@ -127,7 +127,7 @@ function listenToUser(canvas) {
     }
 
     canvas.ontouchmove = function (aaa) {
-      
+
       var x = aaa.touches['0'].clientX
       var y = aaa.touches['0'].clientY
       if (using) {
@@ -145,10 +145,10 @@ function listenToUser(canvas) {
     }
 
     canvas.ontouchend = function () {
-      
+
       using = false
     }
-  }else{
+  } else {
     //非触屏设备
     canvas.onmousedown = function (aaa) {
       var x = aaa.clientX
@@ -195,4 +195,3 @@ function drawLine(x1, y1, x2, y2) {
   content.stroke()
   content.closePath()
 }
-
