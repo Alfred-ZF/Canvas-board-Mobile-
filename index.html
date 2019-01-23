@@ -12,12 +12,26 @@
 <body>
   <canvas id="xxx" width="300px" height="300px"></canvas>
   <div id='actions' class="actions">
-    <button id="eraser">橡皮擦</button>
-    <button id="brush">画笔</button>
+
+    <svg id='pen' class="active icon" aria-hidden="true">
+      <use xlink:href="#icon-pen"></use>
+    </svg>
+
+    <svg id='eraser' class="icon" aria-hidden="true">
+      <use xlink:href="#icon-Eraser"></use>
+    </svg>
+
   </div>
+  <ul class="colors">
+    <li id="red" class="active red"></li>
+    <li id="green" class="green"></li>
+    <li id="blue" class="blue"></li>
+  </ul>
   <script src="./index.js">
 
   </script>
+  <script src="//at.alicdn.com/t/font_1029141_uwo73800ul.js
+  "></script>
 </body>
 
 </html>
