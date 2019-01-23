@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#xxx {
+  background: grey;
+}
+
+.actions {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+}
+
+.actions #brush {
+  display: none;
+}
+
+.actions.x #eraser {
+  display: none;
+}
+
+.actions.x #brush {
+  display: inline-block;
+}
